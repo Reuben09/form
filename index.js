@@ -99,15 +99,30 @@ function createForm() {
     `;
 }
 
-// Render the form
 var getQuoteButton = document.getElementById('getQuoteButton');
 
-// Add event listener for click event
 getQuoteButton.addEventListener('click', function() {
-    // Execute code when the button is clicked
-    console.log('Get Quote button clicked!');
-document.body.innerHTML = createForm();
+    // Check if the form has already been rendered
+    if (!document.getElementById('snippet-form')) {
+        // Log a message to verify if the button click event is being triggered
+        console.log('Button clicked!');
+        // Execute code to render the form only if it hasn't been rendered yet
+        var formHtml = createForm();
+        // Create a temporary container element
+        var tempContainer = document.createElement('div');
+        // Set the innerHTML of the container to the form HTML
+        tempContainer.innerHTML = formHtml;
+        // Get the form element from the container
+        var form = tempContainer.querySelector('form');
+        // Get the form container element
+        var formContainer = document.getElementById('formContainer');
+        // Append the form to the container
+        formContainer.appendChild(form);
+    } else {
+        console.log('Form already rendered, not rendering again.');
+    }
 });
+
 
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbxcM56KKnohVgsVeCGY5FB6ECnT-wuEPtTXkEpvkRpPdJfZfiK2R4Z1HKfx6yDPVe60Fw/exec";
