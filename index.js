@@ -100,7 +100,14 @@ function createForm() {
 }
 
 // Render the form
+var getQuoteButton = document.getElementById('getQuoteButton');
+
+// Add event listener for click event
+getQuoteButton.addEventListener('click', function() {
+    // Execute code when the button is clicked
+    console.log('Get Quote button clicked!');
 document.body.innerHTML = createForm();
+});
 
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbxcM56KKnohVgsVeCGY5FB6ECnT-wuEPtTXkEpvkRpPdJfZfiK2R4Z1HKfx6yDPVe60Fw/exec";
